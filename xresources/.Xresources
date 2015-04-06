@@ -1,0 +1,142 @@
+!!
+!! Solarized Colors
+!!
+
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+!!
+!! Xft
+!!
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.hintstyle: hintslight
+
+!!
+!! Xcursor
+!!
+
+! Cursor theme
+Xcursor.theme: Openzone Ice Slim
+
+!!
+!! URxvt
+!!
+
+! Create the window with the specified X window geometry [default 80x24]
+URxvt*geometry: 80x24
+! Compile xft: Attempt to find a visual with the given bit depth
+URxvt*depth: 32
+! True: start as a login shell by prepending a - to argv[0] of the shell; option -ls.  False: start as a normal sub-shell [default]; 
+URxvt*loginShell: true
+! Use the specified colour as the windows background colour [default White]
+URxvt*background: [90]S_base03
+! Use the specified colour as the windows foreground colour [default Black]
+URxvt*foreground: S_base00
+! Turn on/off pseudo-transparency by using the root pixmap as background. 
+URxvt*transparent: false
+! Darken (0 .. 99) or lighten (101 .. 200) the transparent background. 
+! A value of 100 means no shading. 
+URxvt*shading: 130
+! True: enable the scrollbar [default]; option -sb. False: disable the scrollbar
+URxvt*scrollBar: true
+! Use the specified colour for the scrollbar [default #B2B2B2]
+URxvt*scrollColor: S_yellow
+! Set scrollbar style to rxvt, plain, next or xterm. plain is the authors favourite.
+URxvt*scrollstyle: plain
+! Place the scrollbar on the right of the window
+URxvt*scrollBar_right: true
+! Use the specified color for the cursor
+URxvt*cursorColor: S_base1
+! The mouse pointer foreground colour
+URxvt*pointerColorBackground: S_base01
+! The mouse pointer background colour
+URxvt*pointerColorForeground: S_base1
+! Black dark/light
+URxvt*color0: S_base02
+URxvt*color8: S_base03
+! Red dark/light
+URxvt*color1: S_red
+URxvt*color9: S_orange
+! Green dark/light
+URxvt*color2: S_green
+URxvt*color10: S_base01
+! Yellow dark/light
+URxvt*color3: S_yellow
+URxvt*color11: S_base00
+! Blue dark/light
+URxvt*color4: S_blue
+URxvt*color12: S_base0
+! Magenta dark/light
+URxvt*color5: S_magenta
+URxvt*color13: S_violet
+! Cyan dark/light
+URxvt*color6: S_cyan
+URxvt*color14: S_base1
+! White dark/light
+URxvt*color7: S_base2
+URxvt*color15: S_base3
+
+! Select the fonts to be used. This is a comma separated list of font names that are checked in order when trying to find glyphs for characters
+URxvt*font: xft:InconsolataForPowerlineCustom:pixelsize:15
+! When font styles are not enabled, or this option is enabled (true), bold and italic font styles imply high
+! intensity foreground/background colours. Disabling this option (false) disables this behaviour, 
+! the high intensity colours are not reachable.
+URxvt.intensityStyles: false
+! Comma-separated list(s) of perl extension scripts (default: "default") to use in this terminal instance, blank disables. 
+! By setting these both to blank, it completely disables perl from being initialized, thus much faster and smaller footprint. 
+! Plus it is more secure
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
+! Specifies the program to be started with a URL argument. Used by the "selection-popup" and "matcher" perl extensions
+URxvt.urlLauncher: firefox
+URxvt.matcher.button: 1
+
+!!
+!! rofi
+!!
+rofi.foreground: S_base0
+rofi.background: S_base03
+rofi.highlightfg: S_base03
+rofi.highlightbg: S_yellow
+rofi.bordercolor: S_base02
+rofi.font: InconsolataForPowerlineCustom 15
+rofi.padding: 15
+rofi.lines: 5
+rofi.borderwidth: 3
+rofi.opacity: 90
+
+!!
+!! yeahconsole
+!!
+
+yeahconsole*term: urxvtc
+yeahconsole*consoleWidth: 80
+yeahconsole*consoleHeight: 25
+yeahconsole*toggleKey: ControlAlt+y
+!!yeahconsole*keyFull: Control+grave
+!!yeahconsole*background: #000000
+!!yeahconsole*foreground: #E6E3E6
+!!yeahconsole*cursorColor: #E6E3E6
+!!yeahconsole*transparent: true
+!!yeahconsole*shading: 40
+!!yeahconsole*restart: 1
+yeahconsole*faceName: xft:InconsolataForPowerlineCustom:pixelsize:15
+!!yeahconsole*metaSendsEscape: true
+yeahconsole*aniDelay: 40 
