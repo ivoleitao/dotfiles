@@ -5,3 +5,4 @@
 /ranger/.config/ranger/commands.pyo
 /ranger/.config/ranger/history
 /ranger/.config/ranger/tagged
+/systemd/.config/systemd/user/default.target.wants
