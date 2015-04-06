@@ -1,5 +1,6 @@
 /fonts/.fonts/*.sfd*
 /ncmpcpp/.ncmpcpp/error.log
+/nitrogen/.config/nitrogen/bg-saved.cfg
 /ranger/.config/ranger/bookmarks
 /ranger/.config/ranger/commands.pyo
 /ranger/.config/ranger/history
