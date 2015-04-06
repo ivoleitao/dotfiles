@@ -2,13 +2,17 @@
 command=~/.config/i3blocks/segments/now-playing.sh
 interval=1
 
+[weather]
+command=~/.config/i3blocks/segments/weather.sh
+interval=60
+
 [bandwidth]
 command=~/.config/i3blocks/segments/bandwidth.sh
 interval=1
 
-[weather]
-command=~/.config/i3blocks/segments/weather.sh
-interval=60
+[network]
+command=~/.config/i3blocks/segments/network.sh
+interval=1
 
 [diskUsage]
 command=~/.config/i3blocks/segments/disk-usage.sh

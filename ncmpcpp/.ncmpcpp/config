@@ -219,7 +219,7 @@ visualizer_type = "spectrum"
 #
 ## colors are not supported for below variable
 #
-#song_window_title_format = "{%a - }{%t}|{%f}"
+song_window_title_format = "ncmpcpp {%a - }{%t}|{%f}"
 #
 ##### columns settings #####
 ##
@@ -426,7 +426,7 @@ execute_on_song_change = "mpdnotify"
 #
 #media_library_disable_two_column_mode = "no"
 #
-#enable_window_title = "yes"
+#enable_window_title = "no"
 #
 ##
 ## Note: You can choose default search mode for search
