@@ -1,2 +1,6 @@
 /fonts/.fonts/*.sfd*
 /ncmpcpp/.ncmpcpp/error.log
+/ranger/.config/ranger/bookmarks
+/ranger/.config/ranger/commands.pyo
+/ranger/.config/ranger/history
+/ranger/.config/ranger/tagged
