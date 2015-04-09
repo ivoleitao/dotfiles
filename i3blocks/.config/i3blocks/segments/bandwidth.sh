@@ -34,7 +34,7 @@ format_bandwidth() {
         upload_value="${tx_kib}K"
     fi
 
-    printf "<span foreground='$download_icon_color'>$download_icon</span> %-5s <span foreground='$upload_icon_color'>$upload_icon</span> %-5s" "$download_value" "$upload_value"
+    printf "<span foreground='$download_icon_color'>$download_icon</span> %5s <span foreground='$upload_icon_color'>$upload_icon</span> %5s" "$download_value" "$upload_value"
 }
 
 panel_bandwidth() {

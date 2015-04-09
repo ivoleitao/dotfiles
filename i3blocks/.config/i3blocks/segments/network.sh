@@ -3,12 +3,12 @@
 source "$(dirname $0)/config.sh"
 
 format_wired() {
-    local ip=$1
-    printf "<span foreground='$NETWORK_ICON_COLOR'>$NETWORK_ICON_WIRED</span> %s" "$ip"
+    local interface=$1
+    printf "<span foreground='$NETWORK_ICON_COLOR'>$NETWORK_ICON_WIRED</span> %s" "$interface"
 }
 
 format_wireless() {
-    local ip=$1
+    local interface=$1
     local ssid=$2
     local quality=$3
     local icon=""
@@ -25,7 +25,7 @@ format_wireless() {
         icon="$NETWORK_ICON_WIRELESS_VERY_HIGH"
     fi
 
-    printf "<span foreground='$NETWORK_ICON_COLOR'>$icon</span> (%-3s at %s) %s" "$quality%" "$ssid" "$ip"
+    printf "<span foreground='$NETWORK_ICON_COLOR'>$icon</span> %s %-3s" "$ssid" "$quality%"
 }
 
 format_none() {
@@ -33,27 +33,15 @@ format_none() {
 }
 
 panel_network() {
-    local net=$(ip addr)
-    local eth_state=$(echo "$net" | awk '/'$NETWORK_INTERFACE_WIRED':/  { print $9 }')
-    local wlan_state=$(echo "$net" | awk '/'$NETWORK_INTERFACE_WIRELESS':/ { print $9 }')
-    local interface=""
-    if [[ "$eth_state" == "UP" && "$wlan_state" == "UP" ]]; then
-        interface=$(ip route | awk '/default/ { print $5 }')
-    elif [ "$eth_state" == "UP" ]; then
-        interface=$NETWORK_INTERFACE_WIRED
-    elif [ "$wlan_state" == "UP" ]; then
-        interface=$NETWORK_INTERFACE_WIRELESS
-    fi
-    
-    local ip=""
-    if [[ "$interface" == "$NETWORK_INTERFACE_WIRED" ]]; then
-        ip=$(echo "$net" | awk '/inet.*'$NETWORK_INTERFACE_WIRED'/  { print $2 }')
-        echo "$(format_wiredi "$ip")"
-    elif [ "$interface" == "$NETWORK_INTERFACE_WIRELESS" ]; then
-        ip=$(echo "$net" | awk '/inet.*'$NETWORK_INTERFACE_WIRELESS'/  { print $2 }')
-        local essid=$(/sbin/iwgetid --raw)
-        local quality=$(awk 'NR==3 {printf("%.0f\n",$3*10/7)}' /proc/net/wireless)
-        echo "$(format_wireless "$ip" "$essid" "$quality")"
+    local interface=$(ip route | awk '/default/ { print $5 }')
+    if [ -n "$interface" ]; then
+        if [ -d "/sys/class/net/$interface/wireless" ]; then
+            local essid=$(/sbin/iwgetid --raw)
+            local quality=$(awk 'NR==3 {printf("%.0f\n",$3*10/7)}' /proc/net/wireless)
+            echo "$(format_wireless "$interface" "$essid" "$quality")"
+        else
+            echo "$(format_wired "$interface")"
+        fi
     else
         echo "$(format_none)"
     fi

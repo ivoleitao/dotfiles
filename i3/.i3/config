@@ -200,6 +200,8 @@ bindsym XF86MonBrightnessUp exec ~/bin/backlight-level 5
 
 #floating
 for_window [class="Nitrogen" instance="nitrogen"] floating enable
+for_window [class="Arandr" instance="arandr"] floating enable
+for_window [class="Wicd-client.py" instance="wicd-client.py"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -267,6 +269,10 @@ exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
 
 # Restore wallpaper
 exec --no-startup-id nitrogen --restore
+
+# Monitor scratchpad
+for_window [class="URxvt" instance="urxvt" title="htop"] move to scratchpad, border 1pixel
+bindsym $mod+Shift+p exec ~/bin/i3-scratchpad-process "htop"
 
 # Terminal scratchpad
 for_window [class="URxvt" instance="urxvt" title="terminal"] move to scratchpad, border 1pixel
