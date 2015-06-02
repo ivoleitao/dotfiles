@@ -1,39 +1,47 @@
 #!/bin/bash
 
-source "kv-shell.sh"
 source "$(dirname $0)/config.sh"
 
 format_battery() {
     local value=$1
     local icon=""
+    local icon_color=""
 
-    if [ $value -le 5 ]
+    if [ $value -le $BATTERY_ICON_CRITICAL_THRESHOLD ]
     then
         icon="$BATTERY_ICON_CRITICAL"
-    elif [ $value -le 10 ] 
+        icon_color="$BATTERY_ICON_CRITICAL_COLOR"
+    elif [ $value -le $BATTERY_ICON_VERY_LOW_THRESHOLD ] 
     then
         icon="$BATTERY_ICON_VERY_LOW"
-    elif [ $value -le 20 ] 
+        icon_color="$BATTERY_ICON_VERY_LOW_COLOR"
+    elif [ $value -le $BATTERY_ICON_LOW_THRESHOLD ] 
     then
         icon="$BATTERY_ICON_LOW"
-    elif [ $value -le 40 ]
+        icon_color="$BATTERY_ICON_LOW_COLOR"
+    elif [ $value -le $BATTERY_ICON_MEDIUM_THRESHOLD ]
     then
         icon="$BATTERY_ICON_MEDIUM"
-    elif [ $value -le 60 ]
+        icon_color="$BATTERY_ICON_MEDIUM_COLOR"
+    elif [ $value -le $BATTERY_ICON_HIGH_THRESHOLD ]
     then
         icon="$BATTERY_ICON_HIGH"
-    elif [ $value -le 80 ]
+        icon_color="$BATTERY_ICON_HIGH_COLOR"
+    elif [ $value -le $BATTERY_ICON_VERY_HIGH_THRESHOLD ]
     then
         icon="$BATTERY_ICON_VERY_HIGH"
-    elif [ $value -lt 100 ]
+        icon_color="$BATTERY_ICON_VERY_HIGH_COLOR"
+    elif [ $value -lt $BATTERY_ICON_MAX_THRESHOLD ]
     then
         icon="$BATTERY_ICON_MAX"
-    elif [ $value -eq 100 ]
+        icon_color="$BATTERY_ICON_MAX_COLOR"
+    elif [ $value -eq $BATTERY_ICON_MAX_THRESHOLD ]
     then
         icon="$BATTERY_ICON_FULL"
+        icon_color="$BATTERY_ICON_FULL_COLOR"
     fi
 
-    printf "<span foreground='$BATTERY_ICON_COLOR'>$icon</span> %-3s" "$value%"
+    printf "<span foreground='$icon_color'>$icon</span> %-3s" "$value%"
 }
 
 panel_battery() {

@@ -5,8 +5,20 @@ source "$(dirname $0)/config.sh"
 format_memory_usage() {
     local value=$1
     local icon="$MEMORY_USAGE_ICON"
+    local icon_color="$MEMORY_USAGE_ICON_NORMAL_COLOR"
 
-    printf "<span foreground='$MEMORY_USAGE_ICON_COLOR'>$icon</span> %-3s" "$value%"
+    if [ $value -ge $MEMORY_USAGE_ICON_CRITICAL_COLOR_THRESHOLD ]
+    then
+        icon_color="$MEMORY_USAGE_ICON_CRITICAL_COLOR"
+    elif [ $value -ge $MEMORY_USAGE_ICON_ALERT_COLOR_THRESHOLD ] 
+    then
+        icon_color="$MEMORY_USAGE_ICON_ALERT_COLOR"
+    elif [ $value -ge $MEMORY_USAGE_ICON_WARN_COLOR_THRESHOLD ] 
+    then
+        icon_color="$MEMORY_USAGE_ICON_WARN_COLOR"
+    fi
+
+    printf "<span foreground='$icon_color'>$icon</span> %-3s" "$value%"
 }
 
 panel_memory_usage() {

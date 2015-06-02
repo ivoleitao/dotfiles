@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "/home/ivoleitao/bin/kv-shell.sh"
+source "/home/ivoleitao/lib/kv-shell.sh"
 source "$(dirname $0)/config.sh"
 
 format_bandwidth() {

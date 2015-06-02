@@ -255,6 +255,9 @@ exec xset s noblank
 # Disable bell
 exec xset -b
 
+# Start clipit in daemon mode
+exec --no-startup-id clipit -d -n
+
 # Start urxvt in daemon mode
 exec --no-startup-id urxvtd -q -f -o
 

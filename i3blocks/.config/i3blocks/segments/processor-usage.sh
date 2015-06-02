@@ -1,14 +1,25 @@
 #!/bin/bash
 
-source "/home/ivoleitao/bin/kv-shell.sh"
+source "/home/ivoleitao/lib/kv-shell.sh"
 source "$(dirname $0)/config.sh"
-
 
 format_processor_usage() {
     local value=$1
     local icon="$PROCESSOR_USAGE_ICON"
+    local icon_color="$PROCESSOR_USAGE_ICON_NORMAL_COLOR"
 
-    printf "<span foreground='$PROCESSOR_USAGE_ICON_COLOR'>$icon</span> %-3s" "$value%"
+    if [ $value -ge $PROCESSOR_USAGE_ICON_CRITICAL_COLOR_THRESHOLD ]
+    then
+        icon_color="$PROCESSOR_USAGE_ICON_CRITICAL_COLOR"
+    elif [ $value -ge $PROCESSOR_USAGE_ICON_ALERT_COLOR_THRESHOLD ] 
+    then
+        icon_color="$PROCESSOR_USAGE_ICON_ALERT_COLOR"
+    elif [ $value -ge $PROCESSOR_USAGE_ICON_WARN_COLOR_THRESHOLD ] 
+    then
+        icon_color="$PROCESSOR_USAGE_ICON_WARN_COLOR"
+    fi
+
+    printf "<span foreground='$icon_color'>$icon</span> %-3s" "$value%"
 }
 
 panel_processor_usage() {

@@ -1,3 +1,62 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Later
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+" let mapleader = ","
+" let g:mapleader = ","
+
+" Fast saving
+" nmap <leader>w :w!<cr>
+
+" :W sudo saves the file 
+" (useful for handling the permission-denied error)
+" command W w !sudo tee % > /dev/null
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Set 'nocompatible' to ward off unexpected things that your distro might
+" have made, as well as sanely reset options when re-sourcing .vimrc
+set nocompatible
+
+" Sets how many lines of history VIM has to remember
+set history=700
+
+" Attempt to determine the type of a file based on its name and possibly its
+" contents.  Use this to allow intelligent auto-indenting for each filetype,
+" and for plugins that are filetype specific.
+filetype plugin on
+filetype indent on
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Editor
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Use spaces instead of tabs
+set expandtab
+" Be smart when using tabs ;)
+set smarttab
+" Indents will have a width of 4
+set shiftwidth=4 
+" The width of a TAB is set to 4.Vim will interpret it to be having a width of 4.
+set tabstop=4
+" Sets the number of columns for a TAB
+set softtabstop=4 
+" Linebreak on 500 characters
+set lbr
+set tw=500
+" Auto indent
+set ai 
+" Smart indent
+set si 
+" Wrap lines
+set wrap 
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -44,15 +103,6 @@ Plugin 'altercation/vim-colors-solarized'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Set 'nocompatible' to ward off unexpected things that your distro might
-" have made, as well as sanely reset options when re-sourcing .vimrc
-set nocompatible
-
-" Attempt to determine the type of a file based on its name and possibly its
-" contents.  Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-filetype indent plugin on
-filetype plugin on
 
 " Enable syntax highlighting
 set t_Co=256
@@ -97,10 +147,6 @@ set visualbell
 " Display line numbers on the left
 set number
 
-set tabstop=4 " The width of a TAB is set to 4.Vim will interpret it to be having a width of 4.
-set shiftwidth=4 " Indents will have a width of 4
-set softtabstop=4 " Sets the number of columns for a TAB
-set expandtab " Expand TABs to spaces
 set pastetoggle=<F10>
 
 "------------------------------------------------------------
