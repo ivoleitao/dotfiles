@@ -1,0 +1,191 @@
+    1  ls
+    2  yum list
+    3  ping google.com
+    4  nmcli
+    5  nmcli device status
+    6  systemctl start network
+    7  nmcli device status
+    8  cat /etc/sysconfig/network
+    9  ls /etc/sysconfig/network-scripts/
+   10  ls /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   11  cat /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   12  system-config-network
+   13  yum install system-config-network
+   14  nmcli -d
+   15  nmcli d
+   16  nmtui
+   17  clear
+   18  nmcli d
+   19  nmtui
+   20  service network restart
+   21  ip -a
+   22  service network restart
+   23  ip a
+   24  ping www.google.com
+   25  clear
+   26  service network restart
+   27  ip a
+   28  ping www.google.com
+   29  yum update
+   30  yum install vim
+   31  yum list installed
+   32  history
+   33  yum install git
+   34  ls
+   35  sed
+   36  vim /etc/sudoers
+   37  ls
+   38  ls /media/
+   39  ls
+   40  ls mnt
+   41  ls /dev/cdrom 
+   42  wget
+   43  yum install wget
+   44  curl
+   45  yum install htop
+   46  yum install tig
+   47  sed -i "s/^.*requiretty/#Defaults requiretty/" /etc/sudoers
+   48  vim etc/sudoers
+   49  vim /etc/sudoers
+   50  ls
+   51  sed -i "s/^.*requiretty/#Defaults requiretty/" /etc/sudoers
+   52  vim /etc/sudoers
+   53  lsd
+   54  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   55  ls
+   56  rpm -ivh epel-release-latest-7.noarch.rpm 
+   57  rm -f epel-release-latest-7.noarch.rpm 
+   58  ls
+   59  vim /etc/ssh/sshd_config 
+   60  hostnamectl set-hostname ols7.vagrant.vm
+   61  exit
+   62  ls
+   63  hostname
+   64  yum-config-manager
+   65  yum search yum-config-manager
+   66  yum install yum-utils
+   67  ls
+   68  yum-config-manager --enable ol7_optional_latest
+   69  ls
+   70  vim /etc/yum.repos.d/debuginfo.repo
+   71  ls
+   72  vim /etc/yum.repos.d/debuginfo.repo
+   73  yumupdate
+   74  yum update
+   75  yum install htop
+   76  htop
+   77  ls
+   78  date > /etc/vagrant_box_build_time
+   79  cat /etc/vagrant_box_build_time 
+   80  cat /etc/vagrant_box_build_time
+   81  /usr/sbin/groupadd vagrant
+   82  man useradd
+   83  groups
+   84  /usr/sbin/useradd vagrant -g vagrant
+   85  echo "vagrant" | passwd --stdin vagrant
+   86  echo "vagrant        ALL=(ALL)        NOPASSWD: ALL" >> /etc/sudoers.d/vagrant
+   87  chmod 0440 /etc/sudoers.d/vagrant
+   88  vim /etc/sudo
+   89  vim /etc/sudoers.d/vagrant
+   90  mkdir -pm 700 /home/vagrant/.ssh
+   91  wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub' -O /home/vagrant/.ssh/authorized_keys
+   92  chmod 0600 /home/vagrant/.ssh/authorized_keys
+   93  chown -R vagrant /home/vagrant/.ssh
+   94  cat /etc/motd 
+   95  echo 'Welcome to Oracle Linux Server 7 Vagrant Box'
+   96  echo 'Welcome to Oracle Linux Server 7 Vagrant Box' > /etc/motd
+   97  exit
+   98  cat /etc/vagrant_box_build_time
+   99  mkdir /media/cdrom
+  100  mount /dev/cdrom /media/cdrom/
+  101  ls /media/cdrom/
+  102  /media/cdrom/VBoxLinuxAdditions.run 
+  103  yum install bzip2
+  104  /media/cdrom/VBoxLinuxAdditions.run 
+  105  modprobe vboxadd
+  106  vboxmanage -version
+  107  lsmod
+  108  lsmod | grep -i vbox
+  109  ls
+  110  vim /media/cdrom/VBoxLinuxAdditions.run 
+  111  ls
+  112  /media/cdrom/VBoxLinuxAdditions.run 
+  113  shutdown
+  114  ls
+  115  ls /media/cdrom/
+  116  /media/cdrom/VBoxLinuxAdditions.run 
+  117  mount /dev/cdrom /media/cdrom/
+  118  /media/cdrom/VBoxLinuxAdditions.run 
+  119  vim /var/log/vboxadd-install.log 
+  120  youm install kernel-devel
+  121  yom install kernel-devel
+  122  yum install kernel-devel
+  123  /media/cdrom/VBoxLinuxAdditions.run 
+  124  vim /var/log/vboxadd-install.log 
+  125  retart
+  126  restart
+  127  exit
+  128  mount /dev/cdrom /media/cdrom/
+  129  /media/cdrom/VBoxLinuxAdditions.run 
+  130  vim /var/log/vboxadd-install.log 
+  131  yum install kernel-devel gcc make patch
+  132  /media/cdrom/VBoxLinuxAdditions.run 
+  133  ls
+  134  yum install atool
+  135  yum install tig
+  136  history
+  137  history| grep yum install
+  138  mount /dev/cdrom /media/cdrom/
+  139  /media/cdrom/VBoxLinuxAdditions.run 
+  140  vim /var/log/vboxadd-install.log 
+  141  yum install kernel-devel gcc make patch
+  142  /media/cdrom/VBoxLinuxAdditions.run 
+  143  ls
+  144  yum install atool
+  145  yum install tig
+  146  history
+  147  history| grep yum install
+  148  history| grep "yum install"
+  149  yum install ncdu
+  150  ncdu
+  151  yum install ranger
+  152  ls --version
+  153  yum install zsh
+  154  vim /etc/shells 
+  155  chsh -s /usr/local/bin/zsh
+  156  zsh
+  157  exit
+  158  ls
+  159  shell
+  160  csh -s $(which zsh)
+  161  cssh -s $(which zsh)
+  162  chsh -s $(which zsh)
+  163  exit
+  164  history | grep "yum install"
+  165  yum uninstall zsh
+  166  yum remove zsh
+  167  ls
+  168  cat /etc/shells 
+  169  history | grep "yum install"
+  170  history | grep "yum install" | more
+  171  yum remove tig
+  172  history | grep "yum install" | more
+  173  exit
+  174  shutdow
+  175  ls -la
+  176  yum uninstall htop
+  177  yum remove htop
+  178  ls
+  179  ls -la
+  180  ls .config/
+  181  rm -Rf .config/
+  182  ls
+  183  ls -la
+  184  cd .pki/
+  185  ls
+  186  vim nssdb/
+  187  ls
+  188  cd ..
+  189  ls
+  190  history
+  191  history > history.txt
