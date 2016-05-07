@@ -91,6 +91,12 @@ Plugin 'tpope/vim-surround'
 " tagbar
 Plugin 'majutsushi/tagbar'
 
+" Vimwiki
+Plugin 'vimwiki'
+
+" instant markdown
+Plugin 'suan/vim-instant-markdown'
+
 " Solarized
 Plugin 'altercation/vim-colors-solarized'
 

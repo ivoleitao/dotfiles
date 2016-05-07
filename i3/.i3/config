@@ -288,3 +288,7 @@ bindsym $mod+Shift+e exec ~/bin/i3-scratchpad-explorer "ranger"
 # Music scratchpad
 for_window [class="URxvt" instance="urxvt" title="ncmpcpp"] move to scratchpad, border 1pixel
 bindsym $mod+Shift+m exec ~/bin/i3-scratchpad-music "ncmpcpp"
+
+# wiki scratchpad
+for_window [class="URxvt" instance="urxvt" title="vimwiki"] move to scratchpad, border 1pixel
+bindsym $mod+Shift+w exec ~/bin/i3-scratchpad-wiki "vimwiki"
