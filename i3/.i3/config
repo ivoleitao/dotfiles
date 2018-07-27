@@ -34,6 +34,9 @@ for_window [class="^.*"] border pixel 0
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Enables automatic workspace back_and_forth
+workspace_auto_back_and_forth yes
+
 # start a terminal
 bindsym $mod+Return exec urxvtc
 
@@ -146,6 +149,9 @@ bindsym $mod+Control+Down move worspace to output down
 bindsym $mod+Control+Up move workspace to output up
 bindsym $mod+Control+Right move workspace to output right
 
+
+# Kill an unresponsive window 
+bindsym --release $mod+Shift+x exec xkill
 # reload the configuration file
 bindsym $mod+Control+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -161,7 +167,7 @@ bindsym $mod+Control+Delete exec "i3-nagbar -t warning -m 'Reboot shortcut press
 # shutdown the computer
 bindsym $mod+Control+x exec "i3-nagbar -t warning -m 'Shutdown shortcut pressed. Do you really want to shutdown?' -b 'Yes, shutdown' '~/bin/i3-control shutdown'"
 # lock the computer
-bindsym $mod+Control+Pause exec ~/bin/i3-control lock
+bindsym $mod+Control+z exec "~/bin/i3-control lock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -201,7 +207,6 @@ bindsym XF86MonBrightnessUp exec ~/bin/backlight-level 5
 #floating
 for_window [class="Nitrogen" instance="nitrogen"] floating enable
 for_window [class="Arandr" instance="arandr"] floating enable
-for_window [class="Wicd-client.py" instance="wicd-client.py"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -255,14 +260,32 @@ exec xset s noblank
 # Disable bell
 exec xset -b
 
+# Start power manager
+exec --no-startup-id xfce4-power-manager
+
+# Start xdisks-glue
+exec --no-startup-id udisks-glue
+
+# Start connman-notify
+exec --no-startup-id connman-notify
+
 # Start clipit in daemon mode
-exec --no-startup-id clipit -d -n
+# exec --no-startup-id clipit -d -n
+
+# Start clipster in daemon mode
+exec --no-startup-id clipster -d
 
 # Start urxvt in daemon mode
 exec --no-startup-id urxvtd -q -f -o
 
-# Start mpd
-exec --no-startup-id mpd ~/.config/mpd/mpd.conf
+# Start notification daemon
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc &
+
+# Start mail daemon
+# exec --no-startup-id davmail -notray
+
+# Start mopidy
+exec --no-startup-id mopidy
 
 # Start xautolock
 exec --no-startup-id xautolock -time 5 -locker '~/bin/i3-control lock' &
@@ -274,21 +297,25 @@ exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
 exec --no-startup-id nitrogen --restore
 
 # Monitor scratchpad
-for_window [class="URxvt" instance="urxvt" title="htop"] move to scratchpad, border 1pixel
-bindsym $mod+Shift+p exec ~/bin/i3-scratchpad-process "htop"
+for_window [instance="URxvt-task-manager"] move to scratchpad, border 1pixel
+bindsym $mod+Shift+p exec ~/bin/i3-scratchpad-task-manager "URxvt-task-manager"
 
 # Terminal scratchpad
-for_window [class="URxvt" instance="urxvt" title="terminal"] move to scratchpad, border 1pixel
-bindsym $mod+Shift+t exec ~/bin/i3-scratchpad-terminal "terminal"
+for_window [instance="URxvt-terminal"] move to scratchpad, border 1pixel
+bindsym $mod+Shift+t exec ~/bin/i3-scratchpad-terminal "URxvt-terminal"
+
+# Network manager scratchpad
+for_window [instance="URxvt-network-manager"] move to scratchpad, border 1pixel
+bindsym $mod+Shift+n exec ~/bin/i3-scratchpad-network-manager "URxvt-network-manager"
 
 # Explorer scratchpad
-for_window [class="URxvt" instance="urxvt" title="ranger"] move to scratchpad, border 1pixel
-bindsym $mod+Shift+e exec ~/bin/i3-scratchpad-explorer "ranger"
+for_window [instance="URxvt-explorer"] move to scratchpad, border 1pixel
+bindsym $mod+Shift+e exec ~/bin/i3-scratchpad-explorer "URxvt-explorer"
 
 # Music scratchpad
-for_window [class="URxvt" instance="urxvt" title="ncmpcpp"] move to scratchpad, border 1pixel
-bindsym $mod+Shift+m exec ~/bin/i3-scratchpad-music "ncmpcpp"
+for_window [instance="URxvt-music"] move to scratchpad, border 1pixel
+bindsym $mod+Shift+m exec ~/bin/i3-scratchpad-music "URxvt-music"
 
 # wiki scratchpad
-for_window [class="URxvt" instance="urxvt" title="vimwiki"] move to scratchpad, border 1pixel
-bindsym $mod+Shift+w exec ~/bin/i3-scratchpad-wiki "vimwiki"
+for_window [instance="URxvt-wiki"] move to scratchpad, border 1pixel
+bindsym $mod+Shift+w exec ~/bin/i3-scratchpad-wiki "URxvt-wiki"

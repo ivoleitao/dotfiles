@@ -15,3 +15,8 @@ fi
 setopt no_beep
 setopt NO_LIST_BEEP
 set bell-style none
+
+# Path
+path+=(~/.fabric8/bin) 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

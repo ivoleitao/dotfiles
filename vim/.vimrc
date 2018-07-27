@@ -100,6 +100,9 @@ Plugin 'suan/vim-instant-markdown'
 " Solarized
 Plugin 'altercation/vim-colors-solarized'
 
+" Asciidoc
+Plugin 'asciidoc/vim-asciidoc'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo

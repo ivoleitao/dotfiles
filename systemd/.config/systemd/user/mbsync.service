@@ -1,8 +1,0 @@
-# mbsync.service
-
-[Unit]
-Description=Mbsync Quicksync
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/env %h/bin/mail-sync

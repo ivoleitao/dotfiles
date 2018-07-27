@@ -30,6 +30,16 @@ if [[ -z "$LANG" ]]; then
 fi
 
 #
+# Proxy
+#
+export http_proxy=http://127.0.0.1:3128
+export https_proxy=$http_proxy
+export HTTP_PROXY=$http_proxy
+export HTTPS_PROXY=$https_proxy
+export FTP_PROXY=$http_proxy
+export ftp_proxy=$http_proxy
+
+#
 # Paths
 #
 
@@ -73,3 +83,11 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+
+# LOG="$HOME/profile-invocations"
+# echo "-----" >>$LOG
+# echo "Caller: $0" >>$LOG
+# echo "DESKTOP_SESSION: $DESKTOP_SESSION" >>$LOG
+# echo "GDMSESSION: $GDMSESSION" >>$LOG
+
+export $(gnome-keyring-daemon -s)

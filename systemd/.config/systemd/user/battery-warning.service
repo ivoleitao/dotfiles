@@ -1,0 +1,8 @@
+# battery-warning.service
+
+[Unit]
+Description=Battery warning
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env %h/bin/i3-battery-warning

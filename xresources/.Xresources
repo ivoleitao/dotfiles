@@ -107,6 +107,7 @@ URxvt.perl-ext-common: default,matcher,selection-to-clipboard
 ! Specifies the program to be started with a URL argument. Used by the "selection-popup" and "matcher" perl extensions
 URxvt.urlLauncher: firefox
 URxvt.matcher.button: 1
+xvt*buffered:false
 
 !!
 !! rofi

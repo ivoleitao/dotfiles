@@ -32,8 +32,8 @@ format_volume() {
 }
 
 panel_volume() {
-    local status="$(amixer get Master|tail -n1|sed -E 's/.*\[([a-z]+)\]/\1/')"
-    local volume="$(amixer get Master|tail -n1|sed -E 's/.*\[([0-9]+)\%\].*/\1/')"
+    local status="$(amixer -c 1 get Master|tail -n1|sed -E 's/.*\[([a-z]+)\]/\1/')"
+    local volume="$(amixer -c 1 get Master|tail -n1|sed -E 's/.*\[([0-9]+)\%\].*/\1/')"
     echo "$(format_volume "$status" "$volume")"
 }
 

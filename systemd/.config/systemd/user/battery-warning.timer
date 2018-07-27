@@ -1,0 +1,12 @@
+# mbsync.timer
+
+[Unit]
+Description=Battery warning timer
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=1m
+Unit=battery-warning.service
+
+[Install]
+WantedBy=multi-user.target
